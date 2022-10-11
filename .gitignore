@@ -1,0 +1,15 @@
+.DS_Store
+
+.gradle
+.vscode
+.idea
+
+local.properties
+build/
+*.aar
+*.iml
+*.jks
+*.apk
+*.pem
+
+node_modules/
