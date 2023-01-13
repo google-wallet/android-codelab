@@ -58,7 +58,11 @@ class CheckoutActivity : AppCompatActivity() {
         // TODO: Set an on-click listener on the "Add to Google Wallet" button
         addToGoogleWalletButton = layout.addToGoogleWalletButton.root
         addToGoogleWalletButton.setOnClickListener {
-            walletClient.savePasses(newObjectJson, this, addToGoogleWalletRequestCode)
+            walletClient.savePasses(
+                TODO("Token goes here"),
+                this,
+                addToGoogleWalletRequestCode
+            )
         }
     }
 
@@ -99,27 +103,4 @@ class CheckoutActivity : AppCompatActivity() {
             }
         }
     }
-
-    // TODO: Create the pass object definition
-    private val issuerEmail = "SERVICE_ACCOUNT_EMAIL"
-    private val issuerId = "ISSUER_ID"
-    private val objectId = "codelab_object"
-
-    private val newObjectJson = """
-    {
-        "iss": "$issuerEmail",
-        "aud": "google",
-        "typ": "savetowallet",
-        "origins": [
-            "https://www.example.com"
-        ],
-        "payload": {
-            "genericObjects": [
-                {
-                    "id": "$issuerId.$objectId"
-                }
-            ]
-        }
-    }
-    """
 }

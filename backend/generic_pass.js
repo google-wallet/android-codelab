@@ -1,4 +1,5 @@
 const { GoogleAuth } = require('google-auth-library');
+const jwt = require('jsonwebtoken');
 
 // TODO: Define issuer ID
 let issuerId = 'ISSUER_ID';
@@ -30,7 +31,7 @@ let genericObject = {
   'cardTitle': {
     'defaultValue': {
       'language': 'en-US',
-      'value': 'Google I/O \'22  [DEMO ONLY]'
+      'value': 'Google I/O \'22'
     }
   },
   'subheader': {
@@ -68,33 +69,15 @@ let genericObject = {
   ]
 }
 
-// Check if the object exists already
-httpClient.request({
-  url: `${baseUrl}/genericObject/${objectId}`,
-  method: 'GET',
-}).then(response => {
-  console.log('Object already exists');
-  console.log(response);
+const claims = {
+  iss: credentials.client_email, // `client_email` in service account file.
+  aud: 'google',
+  origins: ['http://localhost:3000'],
+  typ: 'savetowallet',
+  payload: {
+    genericObjects: [genericObject],
+  },
+};
 
-  console.log('Object ID');
-  console.log(response.data.id);
-}).catch(err => {
-  if (err.response && err.response.status === 404) {
-    // Object does not exist
-    // Create it now
-    httpClient.request({
-      url: `${baseUrl}/genericObject`,
-      method: 'POST',
-      data: genericObject,
-    }).then(response => {
-      console.log('Object insert response');
-      console.log(response);
-
-      console.log('Object ID');
-      console.log(response.data.id);
-    });
-  } else {
-    // Something else went wrong
-    console.log(err);
-  }
-});
+const token = jwt.sign(claims, credentials.private_key, {algorithm: 'RS256'});
+console.log(token)
