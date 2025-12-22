@@ -25,7 +25,7 @@ let genericObject = {
   'hexBackgroundColor': '#4285f4',
   'logo': {
     'sourceUri': {
-      'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/pass_google_logo.jpg'
+      'uri': 'https://developers.google.com/static/wallet/site-assets/images/pass-builder/pass_google_logo.jpg'
     }
   },
   'cardTitle': {
@@ -52,7 +52,7 @@ let genericObject = {
   },
   'heroImage': {
     'sourceUri': {
-      'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/google-io-hero-demo-only.jpg'
+      'uri': 'https://developers.google.com/static/wallet/site-assets/images/pass-builder/google-io-hero-demo-only.jpg'
     }
   },
   'textModulesData': [

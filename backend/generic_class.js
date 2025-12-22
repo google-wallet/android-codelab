@@ -87,7 +87,7 @@ let genericClass = {
     {
       'mainImage': {
         'sourceUri': {
-          'uri': 'https://storage.googleapis.com/wallet-lab-tools-codelab-artifacts-public/google-io-2021-card.png',
+          'uri': 'https://codelabs.developers.google.com/static/add-to-wallet-web/images/google-io-2021-card.png',
         },
         'contentDescription': {
           'defaultValue': {
