@@ -58,7 +58,7 @@ class CheckoutActivity : AppCompatActivity() {
         // TODO: Set an on-click listener on the "Add to Google Wallet" button
         addToGoogleWalletButton = layout.addToGoogleWalletButton.root
         addToGoogleWalletButton.setOnClickListener {
-            walletClient.savePasses(
+            walletClient.savePassesJwt(
                 TODO("Token goes here"),
                 this,
                 addToGoogleWalletRequestCode
